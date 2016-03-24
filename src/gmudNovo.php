@@ -1,3 +1,13 @@
+<?php 
+	require_once 'conexao.php';
+	
+	$sqlSelectRisco = "select * from risco";
+	$result = mysql_query($sqlSelectRisco);
+	$dado = mysql_fetch_assoc($result);
+	foreach ($dado as $d){
+		echo $d['id'].$d['descricao'];	
+	}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -112,7 +122,7 @@
     				<option id="risco" name="riscoNaoExecucao" value="alto" >ALTO</option>
     			</select>
     			
-    			<label for="descRiscoNaoEcexucao">DESCRIÇÃO DO RISCO</label>
+    			<label for="descRiscoNaoEcexucao">DESCRIÇÃO RISCO NÃO EXECUÇÃO</label>
     			<textarea class="form-control" name="descRiscoNaoEcexucao" rows="3"required></textarea>
     		</div>
     		
