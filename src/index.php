@@ -1,3 +1,11 @@
+<?php 
+require_once 'conexao.php';
+	
+$listaGmud = "Select * from gmud";
+$result = mysqli_query($link, $listaGmud);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,12 +31,48 @@
   
  	<div class="container">
  		<nav>
-		 	<ul class="nav nav-pills nav-stacked">
-		 			<li role="presentation" class="active"><a href="">HOME</a></li>
+		 	<ul class="nav nav-pills">
 		 			<li><a href="gmudNovo.php">Nova GMUD</a></li>
 		 	</ul>
 	 	</nav>
  	</div>
+ 	
+ 	<div class="container">
+ 		<table class="table table-strapad">
+ 			<thead>
+ 				<tr>
+ 					<th>ID</th>
+ 					<th>OBJETIVO</th>
+ 					<th>RESPONSÁVEL</th>
+ 					<th>CRIADO EM</th>
+ 					<th>SITUAÇÃO</th><!-- ABERTO/CANCELADA/EXECUTADA -->
+ 					<th></th>
+ 				</tr>
+ 			</thead>
+ 			<tbody>
+ 				<?php while ($gmud = mysqli_fetch_assoc($result)): ?>
+ 				<tr>
+ 					<td><?=$gmud['id']?></td>
+ 					<td><?=$gmud['objetivo']?></td>
+ 					<td><?=$gmud['respMudanca']?></td>
+ 					<td><?=$gmud['dataCriacao']?></td>
+ 					<td>
+ 						<?php $resultSituacao = mysqli_query($link, "select descricao from situacaogmud where id=1");
+ 							$situacao = mysqli_fetch_assoc($resultSituacao);
+ 							echo $situacao['descricao'];
+ 						?>
+ 					</td>
+ 					<td><a href="VisualizarGmud.php">Ver</a></td>
+ 				</tr>
+ 				<?php endwhile;?>
+ 			</tbody>
+ 			
+ 			
+ 		</table>
+ 	
+ 	</div>
+ 	
+ 	
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

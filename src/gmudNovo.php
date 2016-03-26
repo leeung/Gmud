@@ -1,17 +1,20 @@
 <?php 
 	require_once 'conexao.php';
+	$listaTipoMudanca = "select * from tipoMudanca";
+	$listaRisco = "select * from Risco";
 	
-	$sqlSelectRisco = "select * from risco";
-	$result = mysql_query($sqlSelectRisco);
-	$dado = mysql_fetch_assoc($result);
-	foreach ($dado as $d){
-		echo $d['id'].$d['descricao'];	
+	$resultRisco = mysqli_query($link, $listaRisco) or die ("erro na query ListaRisco");
+	$resultTipoMudanca = mysqli_query($link, $listaTipoMudanca) or die ("erro na query listaTipoMudanca");
+	$risco = null;
+	while ($r = mysqli_fetch_array($resultRisco)){
+		$risco[] = array('id'=>$r[0], 'descricao'=>$r[1]);
 	}
+
 ?>
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="PT-br">
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
@@ -39,19 +42,16 @@
     		</div>
     	</div>
     	
-    	<form class="form"action="#" method="post">
-    		<div class="form-group">
-    			
+    	<form class="form" action="SalvarMudanca.php" method="POST">
+    		<div class="form-group">	
     			<label>TIPO DE MUDANÇA</label><br/>
     			<div class="radio">
+    			<?php while ($tipoMudanca = mysqli_fetch_array($resultTipoMudanca)):?>
     				<label>
-    					<input type="radio" name="tipoMudanca" id="tipoMudanca1" value="1" checked>
-    					NORMAL PROGRAMADA
+    					<input type="radio" name="tipoMudanca" value="<?=$tipoMudanca['0']?>" required>
+    					<?=$tipoMudanca[1]?>
     				</label>
-    				<label >
-    					<input type="radio" name="tipoMudanca" id="tipoMudanca1" value="1">
-    					EMERGENCIAL NÃO PROGRAMADA
-    				</label>
+    			<?php endwhile;?>
     			</div>   			
     		</div>
     		
@@ -81,12 +81,12 @@
     		
     		<div class="form-group">
     			<label for="chamado">CHAMADO TI CF-TOTVS</label>
-    			<input class="form-control" type="text" name="chamado" required>
+    			<input class="form-control" type="text" name="chamado">
     		</div>
     		
     		<div class="form-group">
     			<label for="dataHoraExecucao">DATA E HORA PRETENDIDA PARA EXECUÇÃO*</label>
-    			<input type="datetime-local" name="dataHoraExecucao"> 
+    			<input type="datetime-local" name="dataHoraExecucao" required> 
     		</div>
     		<div class="form-group">
     			<label for="homologado">HOMOLOGADO</label>
@@ -103,26 +103,26 @@
     		</div>
     		
     		<div class="form-group">
-    			<label for="riscoExecucao">RISCO DA EXECUÇÃO DA MUDANÇA</label>
-    			<select class="form-control">
-    				<option id="risco" name="riscoExecucao" value="baixo" >BAIXO</option>
-    				<option id="risco" name="riscoExecucao" value="medio" >MEDIO</option>
-    				<option id="risco" name="riscoExecucao" value="alto" >ALTO</option>
+    			<label for="riscoExecucao">RISCO DA EXECUÇÃO DA MUDANÇA*</label>
+    			<select name="riscoExecucao" class="form-control">
+    			<?php foreach ($risco as $r):?>
+    				<option value="<?=$r['id']?>" ><?=$r['descricao']?></option>
+				<?php endforeach;?>
     			</select>
     			
-    			<label for="descRiscoExecucao">DESCRIÇÃO DO RISCO</label>
+    			<label for="descRiscoExecucao">DESCRIÇÃO DO RISCO*</label>
     			<textarea class="form-control" name="descRiscoExecucao" rows="3"required></textarea>
     		</div>
     		
     		<div class="form-group">
-    			<label for="riscoNaoExecucao">RISCO DA NÃO EXECUÇÃO DA MUDANÇA</label>
-    			<select class="form-control">
-    				<option id="risco" name="riscoNaoExecucao" value="baixo" >BAIXO</option>
-    				<option id="risco" name="riscoNaoExecucao" value="medio" >MEDIO</option>
-    				<option id="risco" name="riscoNaoExecucao" value="alto" >ALTO</option>
+    			<label for="riscoNaoExecucao">RISCO DA NÃO EXECUÇÃO DA MUDANÇA*</label>
+    			<select name="riscoNaoExecucao" class="form-control">
+				<?php foreach ($risco as $r):?>
+    				<option value="<?=$r['id']?>" ><?=$r['descricao']?></option>
+				<?php endforeach;?>
     			</select>
     			
-    			<label for="descRiscoNaoEcexucao">DESCRIÇÃO RISCO NÃO EXECUÇÃO</label>
+    			<label for="descRiscoNaoEcexucao">DESCRIÇÃO RISCO NÃO EXECUÇÃO*</label>
     			<textarea class="form-control" name="descRiscoNaoEcexucao" rows="3"required></textarea>
     		</div>
     		
@@ -133,17 +133,17 @@
     		</div>
     		
     		<div class="form-group">
-    			<label for="contigencia">CONTIGENCIA</label>
+    			<label for="contigencia">CONTIGENCIA*</label>
     			<input class="form-control" type="text" name="contigencia" required>
     		</div>
     		
     		<div class="form-group">
-    			<label for="respMudanca">RESPONSÁVEL PELA MUDANÇA</label>
+    			<label for="respMudanca">RESPONSÁVEL PELA MUDANÇA*</label>
     			<input class="form-control" type="text" name="respMudanca" required>
     		</div>
     		
     		<div class="form-group">
-    			<label for="respValMudanca">DESPONSÁVEL PELA VALIDAÇÃO DA MUDANÇA</label>
+    			<label for="respValMudanca">DESPONSÁVEL PELA VALIDAÇÃO DA MUDANÇA*</label>
     			<input class="form-control" type="text" name="respValMudanca" required>
     		</div>
     		

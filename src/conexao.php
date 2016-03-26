@@ -1,7 +1,4 @@
 <?php
 
-$resource = mysql_connect("localhost", "root", "");
-$link = mysql_select_db("ti",$resource);
-if(!$link){
-	echo "não foi possivel conectar ao banco";
-}
+$link = mysqli_connect("localhost","root", "", "ti") 
+	or die("erro na conexao com o banco: ".mysqli_error($link));
