@@ -1,13 +1,10 @@
 <?php 
 require_once 'conexao.php';
-	
-$listaGmud = "Select * from gmud";
-$result = mysqli_query($link, $listaGmud);
 ?>
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="PT-br">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,6 +16,7 @@ $result = mysqli_query($link, $listaGmud);
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/normalize.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/gmud.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -27,51 +25,25 @@ $result = mysqli_query($link, $listaGmud);
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body class="corpo">
   
  	<div class="container">
+ 		<div class="row topo">
+ 			<img class="col-xs-2" src="imagens/logocf.png">
+ 		</div>
  		<nav>
 		 	<ul class="nav nav-pills">
-		 			<li><a href="gmudNovo.php">Nova GMUD</a></li>
+		 		<li><a href="index.php">GMUD</a></li>
+		 		<li><a href="index.php?pagina=criar">NOVO</a></li>
 		 	</ul>
 	 	</nav>
  	</div>
  	
- 	<div class="container">
- 		<table class="table table-strapad">
- 			<thead>
- 				<tr>
- 					<th>ID</th>
- 					<th>OBJETIVO</th>
- 					<th>RESPONSÁVEL</th>
- 					<th>CRIADO EM</th>
- 					<th>SITUAÇÃO</th><!-- ABERTO/CANCELADA/EXECUTADA -->
- 					<th></th>
- 				</tr>
- 			</thead>
- 			<tbody>
- 				<?php while ($gmud = mysqli_fetch_assoc($result)): ?>
- 				<tr>
- 					<td><?=$gmud['id']?></td>
- 					<td><?=$gmud['objetivo']?></td>
- 					<td><?=$gmud['respMudanca']?></td>
- 					<td><?=$gmud['dataCriacao']?></td>
- 					<td>
- 						<?php $resultSituacao = mysqli_query($link, "select descricao from situacaogmud where id=1");
- 							$situacao = mysqli_fetch_assoc($resultSituacao);
- 							echo $situacao['descricao'];
- 						?>
- 					</td>
- 					<td><a href="VisualizarGmud.php">Ver</a></td>
- 				</tr>
- 				<?php endwhile;?>
- 			</tbody>
- 			
- 			
- 		</table>
+ 	<?php 
  	
- 	</div>
+ 	isset($_GET['pagina'])? $pagina = $_GET['pagina'] : $pagina = "listar";
  	
+ 	require_once $pagina . 'Gmud.php';?>
  	
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
