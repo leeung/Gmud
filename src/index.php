@@ -30,10 +30,12 @@ require_once 'conexao.php';
  	<div class="container">
  		<div class="row topo">
  			<img class="col-xs-2" src="imagens/logocf.png">
+ 			<div class="col-xs-8 text-center"><h1>Controle de GMUD</div>
  		</div>
+ 		<br/>
  		<nav>
 		 	<ul class="nav nav-pills">
-		 		<li><a href="index.php">GMUD</a></li>
+		 		<li><a role="presentation" href="index.php">GMUD</a></li>
 		 		<li><a href="index.php?pagina=criar">NOVO</a></li>
 		 	</ul>
 	 	</nav>

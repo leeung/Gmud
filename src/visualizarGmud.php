@@ -22,9 +22,28 @@
 	<div class="container bg-warning">
 		<div class="row topo">
 			<div class="col-sm-2 col-xs-12 "><img class="logo" alt="logo" src="imagens/logocf.png"></div>
+			
 			<div class="col-sm-8 col-xs-12 text-center">
-				<div class="row"><div class="col-xs-12"><h3>GMUD - GESTAO DE MUDANÇA - <?=$gmud['id'] ?></h3></div></div>
-				<div class="row text-info"><div class="col-xs-12"><h5><?=$gmud['situacao']?></h5></div></div>
+				<div class="row">
+					<div class="col-xs-12">
+						<h3>GMUD - GESTAO DE MUDANÇA - <?=$gmud['id'] ?></h3>
+					</div>
+				</div>
+				
+				<div class="row text-info">
+					<div class="col-xs-12">
+						<?php if($gmud['situacao'] == 'Aberto'):?>
+							<h5><?=$gmud['situacao']?> desde <?=$gmud['dataCriacao']?></h5>
+							<h5>
+								<a href="cancelarGmudLogic.php?id=<?= $gmud['id'] ?>">Cancelar</a> - 
+								<a href="fecharGmudLogic.php?id=<?= $gmud['id'] ?>">Fechar</a></h5>
+						<?php else:?>
+							<h5><?=$gmud['situacao']?> - <a href="excluirGmudLogic.php?id=<?= $gmud['id'] ?>">Excluir</a></h5>
+						<?php endif;?>
+					</div>
+				</div>
+				
+				<br/>
 			</div>
 		</div>
 

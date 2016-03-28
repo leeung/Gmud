@@ -7,14 +7,13 @@ if ($id == NULL) {
 	echo"<script>window.location.href='index.php'</script>";
 }
 
-	$dataFechamento = date("d-m-Y");
-	$queryFechar = "update gmud set situacao = 3, dataFechamento = {$dataFechamento} where id={$id}";
-	mysqli_query($link, $queryFechar) or die("erro no select<br/>".mysqli_error($link));
+	$queryCancelar = "update gmud set situacao = (select id from situacaogmud where descricao='Cancelado') where id={$id}";
+	mysqli_query($link, $queryCancelar) or die("erro no select<br/>".mysqli_error($link));
 	
 	if (mysqli_affected_rows($link) == 1){
-		echo "<script>alert('Gmud encerrada')</script>";
+		echo "<script>alert('Gmud cancelada')</script>";
 	}else{
-		echo "<script>alert('Não foi possível fechar a gmud')</script>";
+		echo "<script>alert('Não foi possível cancelar a gmud')</script>";
 	}
 	
 	echo "<script>window.location.href='index.php'</script>";
