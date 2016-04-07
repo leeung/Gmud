@@ -12,7 +12,7 @@ $descMudanca			= $_POST['descricao'];
 $objetivos				= $_POST['objetivo'];
 $requisitante			= $_POST['requisitante'];
 $chamado				= $_POST['chamado'];
-$dataHora				= $_POST['dataHoraExecucao'];
+$dataHoraPret			= $_POST['dataHoraExecucaoPret'];
 $homologado				= $_POST['homologado'];
 $riscoMudanca			= $_POST['riscoExecucao'];
 $descRiscoMudanca		= $_POST['descRiscoExecucao'];
@@ -25,8 +25,8 @@ $respValidacaoMudanca	= $_POST['respValMudanca'];
 $observacoes			= $_POST['observacao'];
 
 
-$query = 	"INSERT INTO `ti`.`gmud` (`id`, `tipoMudanca`, `sistema`, `modulos`, `descricao`, `objetivo`, `requisitante`, `chamado`, `dataHoraExec`, `homologado`, `riscoDesc`, `riscoDescNaoExec`, `indisponibilidade`, `contigencia`, `respMudanca`, `respValMudanca`, `observacao`, `riscoExecucao`, `riscoNaoExecucao`,`dataCriacao`, `situacao`) 
-			VALUES (NULL, '{$tipoMudanca}', '{$sistema}', '{$modulos}', '{$descMudanca}', '{$objetivos}', '{$requisitante}', '{$chamado}', '{$dataHora}', '{$homologado}', '{$descRiscoMudanca}', '{$descRiscoNaoMudanca}', '{$indisponibilidade}', '{$contigencia}','{$respMudanca}', '{$respValidacaoMudanca}', '{$observacoes}', '{$riscoMudanca}', '{$riscoNaoMudanca}', '{$dataCriacao}', '{$situacaoGmud}');";
+$query = 	"INSERT INTO `ti`.`gmud` (`id`, `tipoMudanca`, `sistema`, `modulos`, `descricao`, `objetivo`, `requisitante`, `chamado`, `dataHoraExecPret`, `homologado`, `riscoDesc`, `riscoDescNaoExec`, `indisponibilidade`, `contigencia`, `respMudanca`, `respValMudanca`, `observacao`, `riscoExecucao`, `riscoNaoExecucao`,`dataCriacao`, `situacao`) 
+			VALUES (NULL, '{$tipoMudanca}', '{$sistema}', '{$modulos}', '{$descMudanca}', '{$objetivos}', '{$requisitante}', '{$chamado}', '{$dataHoraPret}', '{$homologado}', '{$descRiscoMudanca}', '{$descRiscoNaoMudanca}', '{$indisponibilidade}', '{$contigencia}','{$respMudanca}', '{$respValidacaoMudanca}', '{$observacoes}', '{$riscoMudanca}', '{$riscoNaoMudanca}', '{$dataCriacao}', '{$situacaoGmud}');";
 
 $result = mysqli_query($link, $query)or die (mysqli_error($link));
 

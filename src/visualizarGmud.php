@@ -54,14 +54,16 @@
 					<div class="col-xs-12"><strong>Sistema</strong><br/><p><?=$gmud['sistema']?></p></div>
 					<div class="col-xs-12"><strong>Módulos</strong><br/><p><?=$gmud['modulos']?></p></div>
 					<div class="col-xs-12"><strong>Contigência</strong><br/><p><?=$gmud['contigencia']?></p></div>
+					<div class="col-xs-6"><strong>Homologado</strong><br/><p><?=$gmud['homologado']?></p></div>	
 				</div>
 			</div>
 			<div class="col-sm-6 col-xs-12">
 				<div class="row">
 					<div class="col-xs-6"><strong>Requisitante</strong><br/><p><?=$gmud['requisitante']?></p></div>
 					<div class="col-xs-6"><strong>Chamado</strong><br/><p><?=$gmud['chamado']?></p></div>
-					<div class="col-xs-6"><strong>Data Hora</strong><br/><p><?=$gmud['dataHoraExec']?></p></div>
-					<div class="col-xs-6"><strong>Homologado</strong><br/><p><?=$gmud['homologado']?></p></div>
+					<div class="col-xs-6"><strong>Data Hora Pretendida</strong><br/><p><?=$gmud['dataHoraExecPret']?></p></div>
+					<div class="col-xs-6"><strong>Data Hora Execucao</strong><br/><p><?=$gmud['inicioExecucao']?></p></div>
+					<div class="col-xs-6"><strong>Data Hora Execucao</strong><br/><p><?=$gmud['dataFechamento']?></p></div>
 					<div class="col-xs-6"><strong>Risco da Execução</strong><br/><p><?=$gmud['riscoExecucao']?></p></div>
 					<div class="col-xs-6"><strong>Risco da Nao Execução</strong><br/><p><?=$gmud['riscoNaoExecucao']?></p></div>
 					<div class="col-xs-6"><strong>Responsável pela mudança</strong><br/><p><?=$gmud['respMudanca']?></p></div>
@@ -69,7 +71,7 @@
 				</div>
 			</div>
 		</div>
-		
+		<br/><br/>
 		<div class="row argigo">
 			<div class="col-xs-6"><strong>Descrição da Mudança</strong><br/><p><?=$gmud['descricao']?></p></div>
 			<div class="col-xs-6"><strong>Objetivo</strong><br/><p><?=$gmud['objetivo']?></p></div>	

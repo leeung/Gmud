@@ -63,8 +63,8 @@
     		</div>
     		
     		<div class="form-group">
-    			<label for="dataHoraExecucao">DATA E HORA PRETENDIDA PARA EXECUÇÃO*</label>
-    			<input type="datetime-local" name="dataHoraExecucao" required> 
+    			<label for="dataHoraExecucaoPret">DATA E HORA PRETENDIDA PARA EXECUÇÃO*</label>
+    			<input type="datetime-local" name="dataHoraExecucaoPret" required> 
     		</div>
     		<div class="form-group">
     			<label for="homologado">HOMOLOGADO</label>

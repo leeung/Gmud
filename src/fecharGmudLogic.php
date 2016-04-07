@@ -7,8 +7,8 @@ if ($id == NULL) {
 	echo"<script>window.location.href='index.php'</script>";
 }
 
-	$dataFechamento = date("d-m-Y");
-	$queryFechar = "update gmud set situacao = 3, dataFechamento = {$dataFechamento} where id={$id}";
+	$dataFechamento = date("Y-m-d h:m:s");
+	$queryFechar = "update gmud set situacao = 3, dataFechamento = '{$dataFechamento}' where id={$id}";
 	mysqli_query($link, $queryFechar) or die("erro no select<br/>".mysqli_error($link));
 	
 	if (mysqli_affected_rows($link) == 1){
