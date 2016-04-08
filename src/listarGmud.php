@@ -73,7 +73,7 @@ $result = mysqli_query($link, $listaGmud);
 	 					</td>
 	 					
 	 					<td class="text-center">						
-							<a class="btn" onclick="return <?=$btnClose?>" href="fecharGmudLogic.php?id=<?= $gmud['id'] ?>">
+							<a class="btn" onclick="return showPopUpFechamento(<?=$btnClose?>,<?= $gmud['id'] ?> );" href="">
 	 							<span class="glyphicon glyphicon-remove" area-hidden="true"></span><br/>Close
 	 						</a>
 	 					</td>

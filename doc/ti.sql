@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 07-Abr-2016 às 05:54
+-- Generation Time: 08-Abr-2016 às 06:23
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -44,6 +44,8 @@ CREATE TABLE IF NOT EXISTS `gmud` (
   `respMudanca` varchar(45) NOT NULL,
   `respValMudanca` varchar(45) NOT NULL,
   `observacao` text,
+  `resultato` varchar(100) DEFAULT NULL,
+  `problemas` varchar(400) DEFAULT NULL,
   `riscoExecucao` int(11) NOT NULL,
   `riscoNaoExecucao` int(11) NOT NULL,
   `dataCriacao` date NOT NULL,
@@ -56,14 +58,16 @@ CREATE TABLE IF NOT EXISTS `gmud` (
   KEY `tipoMudanca_idx` (`tipoMudanca`),
   KEY `situacao` (`situacao`),
   KEY `situacao_2` (`situacao`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
 
 --
 -- Extraindo dados da tabela `gmud`
 --
 
-INSERT INTO `gmud` (`id`, `tipoMudanca`, `sistema`, `modulos`, `descricao`, `objetivo`, `requisitante`, `chamado`, `dataHoraExecPret`, `homologado`, `riscoDesc`, `riscoDescNaoExec`, `indisponibilidade`, `contigencia`, `respMudanca`, `respValMudanca`, `observacao`, `riscoExecucao`, `riscoNaoExecucao`, `dataCriacao`, `inicioExecucao`, `dataFechamento`, `situacao`) VALUES
-(17, 2, 'Protheus', 'Estoque e custo -front loja', 'ImplantaÃ§Ã£o dos patches abaixo\r\n1.       Patch importaÃ§Ã£o 25 itens (parte da alteraÃ§Ã£o serÃ¡ feita na retaguarda outra parte serÃ¡ feita no PDV)\r\n2.       U_C7PRODUTO.prw - > ValidaÃ§Ã£o do pedido de compra a fornecedor ', '1.       Permitir o recebimento de mais de 25 itens por pedido no PDV.<br/>\r\n2.       Validar se o produto jÃ¡ existe no pedido de compra a fornecedor. ', 'item 1 TOTVS Caio, item 2 Jesus (Compras)', 'Item 1 TTZBTF, item 2 nÃ£o possui chamado.', '0000-00-00 00:00:00', 0, 'Existe a possibilidade de o sistema ou alguma funcionalidade ficar indisponÃ­vel, caso ocorra problemas nÃ£o identificados na homologaÃ§Ã£o.', 'NÃ£o atender Ã s solicitaÃ§Ãµes das correÃ§Ãµes e persistÃªncia dos problemas relatados.', 'DURANTE A EXECUÃ‡ÃƒO DA ATIVIDADE O SISTEMA PROTHEUS FICARÃ INDISPONÃVEL', 'NÃƒO SE APLICA', ' Valter Carvalho', 'Valter Carvalho', 'O item 1 serÃ¡ aplicado novamente hoje na retaguarda devido a nÃ£o ter sido possÃ­vel o download do patch ontem.\r\n\r\nÂ·         A parte da implantaÃ§Ã£o do patch dos 25 itens que serÃ¡ feita no PDV, serÃ¡ executada amanhÃ£ 16/03 durante o dia.', 1, 2, '2016-03-28', NULL, '0000-00-00 00:00:00', 3);
+INSERT INTO `gmud` (`id`, `tipoMudanca`, `sistema`, `modulos`, `descricao`, `objetivo`, `requisitante`, `chamado`, `dataHoraExecPret`, `homologado`, `riscoDesc`, `riscoDescNaoExec`, `indisponibilidade`, `contigencia`, `respMudanca`, `respValMudanca`, `observacao`, `resultato`, `problemas`, `riscoExecucao`, `riscoNaoExecucao`, `dataCriacao`, `inicioExecucao`, `dataFechamento`, `situacao`) VALUES
+(17, 2, 'Protheus', 'Estoque e custo -front loja', 'ImplantaÃ§Ã£o dos patches abaixo\r\n1.       Patch importaÃ§Ã£o 25 itens (parte da alteraÃ§Ã£o serÃ¡ feita na retaguarda outra parte serÃ¡ feita no PDV)\r\n2.       U_C7PRODUTO.prw - > ValidaÃ§Ã£o do pedido de compra a fornecedor ', '1.       Permitir o recebimento de mais de 25 itens por pedido no PDV.<br/>\r\n2.       Validar se o produto jÃ¡ existe no pedido de compra a fornecedor. ', 'item 1 TOTVS Caio, item 2 Jesus (Compras)', 'Item 1 TTZBTF, item 2 nÃ£o possui chamado.', '0000-00-00 00:00:00', 0, 'Existe a possibilidade de o sistema ou alguma funcionalidade ficar indisponÃ­vel, caso ocorra problemas nÃ£o identificados na homologaÃ§Ã£o.', 'NÃ£o atender Ã s solicitaÃ§Ãµes das correÃ§Ãµes e persistÃªncia dos problemas relatados.', 'DURANTE A EXECUÃ‡ÃƒO DA ATIVIDADE O SISTEMA PROTHEUS FICARÃ INDISPONÃVEL', 'NÃƒO SE APLICA', ' Valter Carvalho', 'Valter Carvalho', 'O item 1 serÃ¡ aplicado novamente hoje na retaguarda devido a nÃ£o ter sido possÃ­vel o download do patch ontem.\r\n\r\nÂ·         A parte da implantaÃ§Ã£o do patch dos 25 itens que serÃ¡ feita no PDV, serÃ¡ executada amanhÃ£ 16/03 durante o dia.', NULL, NULL, 1, 2, '2016-03-28', NULL, '0000-00-00 00:00:00', 3),
+(18, 3, 'asdf', 'asdf', 'fasdf', 'adsf', 'adsf', 'asdf', '2016-12-31 23:59:00', 0, 'asdfas', 'asdfas', 'asdfasd', 'asdfasd', 'asdf', 'asdf', 'asdf', NULL, NULL, 1, 3, '2016-04-07', NULL, NULL, 2),
+(20, 1, 'asd', 'LKH', 'KH', 'KJH', 'KLJH', 'LKJH', '2016-12-30 23:59:00', 0, 'ASFAS', 'ASDFAS', 'LK', 'LHKJ', 'HKJH', 'LKJHLK', 'HK\r\n', 'asdf', 'asf', 1, 3, '2016-04-07', '2016-04-07 11:04:00', '2016-04-08 01:04:00', 4);
 
 -- --------------------------------------------------------
 

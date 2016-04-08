@@ -21,7 +21,9 @@
   
 	<div class="container bg-warning">
 		<div class="row topo">
-			<div class="col-sm-2 col-xs-12 "><img class="logo" alt="logo" src="imagens/logocf.png"></div>
+			<div class="col-sm-2 col-xs-12 ">
+				<!-- <img class="logo" alt="logo" src="imagens/logocf.png">-->
+			</div>
 			
 			<div class="col-sm-8 col-xs-12 text-center">
 				<div class="row">
@@ -63,7 +65,7 @@
 					<div class="col-xs-6"><strong>Chamado</strong><br/><p><?=$gmud['chamado']?></p></div>
 					<div class="col-xs-6"><strong>Data Hora Pretendida</strong><br/><p><?=$gmud['dataHoraExecPret']?></p></div>
 					<div class="col-xs-6"><strong>Data Hora Execucao</strong><br/><p><?=$gmud['inicioExecucao']?></p></div>
-					<div class="col-xs-6"><strong>Data Hora Execucao</strong><br/><p><?=$gmud['dataFechamento']?></p></div>
+					<div class="col-xs-6"><strong>Data Hora Fechamento</strong><br/><p><?=$gmud['dataFechamento']?></p></div>
 					<div class="col-xs-6"><strong>Risco da Execução</strong><br/><p><?=$gmud['riscoExecucao']?></p></div>
 					<div class="col-xs-6"><strong>Risco da Nao Execução</strong><br/><p><?=$gmud['riscoNaoExecucao']?></p></div>
 					<div class="col-xs-6"><strong>Responsável pela mudança</strong><br/><p><?=$gmud['respMudanca']?></p></div>
