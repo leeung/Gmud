@@ -1,10 +1,17 @@
+
+
 <?php 
+
+
+
 	require_once 'conexao.php';
+	
 	isset($_GET['id']) && is_numeric($_GET['id'])? $gmud = $_GET['id'] : $gmud = null;
 	
 	if($gmud == null) die("Selecione uma Gmud");
 	
 	$query = "select * from gmud where id = {$gmud}";
+
 	
 	$result = mysqli_query($link, $query);
 	if(mysqli_affected_rows($link) != 1) die("a consulta não retornou nados");
@@ -90,6 +97,13 @@
 		</div>
 
 	</div>
+	
+	
+	
+	
+		
+	</body>
+</html>
 	
 
 	

@@ -37,12 +37,13 @@ require_once 'conexao.php';
 		 	<ul class="nav nav-pills">
 		 		<li><a role="presentation" href="index.php">GMUD</a></li>
 		 		<li><a href="index.php?pagina=criar">NOVO</a></li>
+		 		<li><a href="index.php?pagina=contatos">CONTATOS</a></li>
 		 	</ul>
 	 	</nav>
  	</div>
  	
  	<?php 
- 	
+
  	isset($_GET['pagina'])? $pagina = $_GET['pagina'] : $pagina = "listar";
  	
  	require_once $pagina . 'Gmud.php';?>

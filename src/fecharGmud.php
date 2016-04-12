@@ -9,8 +9,8 @@ $gmud = mysqli_fetch_assoc($result);
 if(mysqli_error($link))die("Não foi possível encontrar os dados da Gmud");
 
 date_default_timezone_set("America/Sao_paulo");
-$gmud['inicioExecucao'] = date_format(new DateTime($gmud['inicioExecucao']), "d/m/Y h:m");
-$gmud['terminoExecucao'] = date_format(new DateTime(), "d/m/Y h:m");
+$gmud['inicioExecucao'] = date_format(new DateTime($gmud['inicioExecucao']), "d/m/Y h:i:s");
+$gmud['terminoExecucao'] = date_format(new DateTime(), "d/m/Y h:i:s");
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -18,6 +18,11 @@ $gmud['terminoExecucao'] = date_format(new DateTime(), "d/m/Y h:m");
 		<meta charset="UTF-8">
 		<title>Fechamento Gmud</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<script type="text/javascript">
+
+			
+		
+		</script>
 	</head>
 	<body>
 		<div class="container">
@@ -45,7 +50,7 @@ $gmud['terminoExecucao'] = date_format(new DateTime(), "d/m/Y h:m");
 					<textarea class="form-control" name="problemas" rows="3" required></textarea>
 				</div>
 				<div class="form-group">
-					<button class="form-control btn btn-primary" type="submit" onseeked="alert('teste');" Fechar</button>
+					<button class="form-control btn btn-primary" type="submit" >Fechar</button>
 				</div>
 				
 								

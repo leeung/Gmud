@@ -1,6 +1,9 @@
 <?php 	
+
+
 $listaGmud = "Select * from gmud";
 $result = mysqli_query($link, $listaGmud);
+
 ?>
 
 	
