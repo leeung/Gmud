@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 08-Abr-2016 às 06:23
+-- Generation Time: 12-Abr-2016 às 00:14
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -19,6 +19,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `ti`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `contatos`
+--
+
+CREATE TABLE IF NOT EXISTS `contatos` (
+  `id` int(3) NOT NULL,
+  `endereco` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `contatos`
+--
+
+INSERT INTO `contatos` (`id`, `endereco`) VALUES
+(1, 'lenne.meneses@gmail.com;leeungalves@gmail.com;leeung@casafreitas.com.br;');
 
 -- --------------------------------------------------------
 
@@ -58,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `gmud` (
   KEY `tipoMudanca_idx` (`tipoMudanca`),
   KEY `situacao` (`situacao`),
   KEY `situacao_2` (`situacao`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=26 ;
 
 --
 -- Extraindo dados da tabela `gmud`
@@ -67,7 +86,12 @@ CREATE TABLE IF NOT EXISTS `gmud` (
 INSERT INTO `gmud` (`id`, `tipoMudanca`, `sistema`, `modulos`, `descricao`, `objetivo`, `requisitante`, `chamado`, `dataHoraExecPret`, `homologado`, `riscoDesc`, `riscoDescNaoExec`, `indisponibilidade`, `contigencia`, `respMudanca`, `respValMudanca`, `observacao`, `resultato`, `problemas`, `riscoExecucao`, `riscoNaoExecucao`, `dataCriacao`, `inicioExecucao`, `dataFechamento`, `situacao`) VALUES
 (17, 2, 'Protheus', 'Estoque e custo -front loja', 'ImplantaÃ§Ã£o dos patches abaixo\r\n1.       Patch importaÃ§Ã£o 25 itens (parte da alteraÃ§Ã£o serÃ¡ feita na retaguarda outra parte serÃ¡ feita no PDV)\r\n2.       U_C7PRODUTO.prw - > ValidaÃ§Ã£o do pedido de compra a fornecedor ', '1.       Permitir o recebimento de mais de 25 itens por pedido no PDV.<br/>\r\n2.       Validar se o produto jÃ¡ existe no pedido de compra a fornecedor. ', 'item 1 TOTVS Caio, item 2 Jesus (Compras)', 'Item 1 TTZBTF, item 2 nÃ£o possui chamado.', '0000-00-00 00:00:00', 0, 'Existe a possibilidade de o sistema ou alguma funcionalidade ficar indisponÃ­vel, caso ocorra problemas nÃ£o identificados na homologaÃ§Ã£o.', 'NÃ£o atender Ã s solicitaÃ§Ãµes das correÃ§Ãµes e persistÃªncia dos problemas relatados.', 'DURANTE A EXECUÃ‡ÃƒO DA ATIVIDADE O SISTEMA PROTHEUS FICARÃ INDISPONÃVEL', 'NÃƒO SE APLICA', ' Valter Carvalho', 'Valter Carvalho', 'O item 1 serÃ¡ aplicado novamente hoje na retaguarda devido a nÃ£o ter sido possÃ­vel o download do patch ontem.\r\n\r\nÂ·         A parte da implantaÃ§Ã£o do patch dos 25 itens que serÃ¡ feita no PDV, serÃ¡ executada amanhÃ£ 16/03 durante o dia.', NULL, NULL, 1, 2, '2016-03-28', NULL, '0000-00-00 00:00:00', 3),
 (18, 3, 'asdf', 'asdf', 'fasdf', 'adsf', 'adsf', 'asdf', '2016-12-31 23:59:00', 0, 'asdfas', 'asdfas', 'asdfasd', 'asdfasd', 'asdf', 'asdf', 'asdf', NULL, NULL, 1, 3, '2016-04-07', NULL, NULL, 2),
-(20, 1, 'asd', 'LKH', 'KH', 'KJH', 'KLJH', 'LKJH', '2016-12-30 23:59:00', 0, 'ASFAS', 'ASDFAS', 'LK', 'LHKJ', 'HKJH', 'LKJHLK', 'HK\r\n', 'asdf', 'asf', 1, 3, '2016-04-07', '2016-04-07 11:04:00', '2016-04-08 01:04:00', 4);
+(20, 1, 'asd', 'LKH', 'KH', 'KJH', 'KLJH', 'LKJH', '2016-12-30 23:59:00', 0, 'ASFAS', 'ASDFAS', 'LK', 'LHKJ', 'HKJH', 'LKJHLK', 'HK\r\n', 'teste', '1', 1, 3, '2016-04-07', '2016-04-07 11:04:00', '2016-04-10 04:19:46', 3),
+(21, 2, 'fas', 'asf', 'asdf', 'asdf', 'asf', 'asdf', '2016-12-31 23:59:00', 0, 'asfasdf', 'dsgasdg', 'asfasf', 'AGASF', 'ASDFQSDF', 'ASDA', 'ASF', NULL, NULL, 1, 3, '2016-04-11', NULL, NULL, 1),
+(22, 2, 'fas', 'asf', 'asdf', 'asdf', 'asf', 'asdf', '2016-12-31 23:59:00', 0, 'asfasdf', 'dsgasdg', 'asfasf', 'AGASF', 'ASDFQSDF', 'ASDA', 'ASF', NULL, NULL, 1, 3, '2016-04-11', NULL, NULL, 1),
+(23, 2, 'fas', 'asf', 'asdf', 'asdf', 'asf', 'asdf', '2016-12-31 23:59:00', 0, 'asfasdf', 'dsgasdg', 'asfasf', 'AGASF', 'ASDFQSDF', 'ASDA', 'ASF', NULL, NULL, 1, 3, '2016-04-11', NULL, NULL, 1),
+(24, 2, 'fas', 'asf', 'asdf', 'asdf', 'asf', 'asdf', '2016-12-31 23:59:00', 0, 'asfasdf', 'dsgasdg', 'asfasf', 'AGASF', 'ASDFQSDF', 'ASDA', 'ASF', NULL, NULL, 1, 3, '2016-04-11', NULL, NULL, 1),
+(25, 1, 'adsf', 'adsf', 'adsf', 'asdf', 'adsf', 'adsf', '2014-10-30 22:58:00', 0, 'asfa', 'asdfa', 'ASDFA', 'ASDF', 'SDFA', 'sdga', 'gsfdg', 'ffsdf', 'sfdfs', 1, 3, '2016-04-12', '2016-04-12 12:04:33', '2016-04-12 12:11:19', 3);
 
 -- --------------------------------------------------------
 

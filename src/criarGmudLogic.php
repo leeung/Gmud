@@ -32,5 +32,5 @@ $result = mysqli_query($link, $query)or die (mysqli_error($link));
 
 if(mysqli_affected_rows($link) > 0 )  echo "<script>alert('Gmud inserida com sucesso');</script>";
 ELSE ECHO "<script>alert('Não foi possível excluir a GMUD');</script>";
-
-echo"<script>window.location.href='index.php'</script>";
+$id =mysqli_insert_id($link);
+echo"<script>window.location.href='enviarGmudNovaLogic.php?id={$id}'</script>";

@@ -26,11 +26,14 @@ function enviarEmail($from, $fromName, $title, $address, $cc, $corpo){
 	$Email->Subject = $title;
 	
 	foreach ($address as $end){
-		$Email->AddAddress($end['email'], $end['nome']);
+		if (strlen($end)>1)
+			$Email->AddAddress($end);
 	}
 	
-	foreach ($cc as $c){
-		$Email->addBCC($c['email'], $c['nome']);
+	if ($cc != null){
+		foreach ($cc as $c){
+			$Email->addBCC($c['email'], $c['nome']);
+		}
 	}
 	
 	//$body = $Email->filenameToType("visualizarGmud.php?id=17");
