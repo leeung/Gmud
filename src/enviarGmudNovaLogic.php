@@ -18,13 +18,13 @@ join risco re on g.riscoExecucao = re.id
 join risco rn on g.riscoNaoExecucao = rn.id
 where g.id={$id}"));
 if(mysqli_error($link))die(mysqli_error($link));
-var_dump($Gmud);
 
-$result = enviarEmail("leeung@casafreitas.com.br", "Suporte TI", "(GMUD) GESTÃO DE MUDANÇA - ".$Gmud['id'], $address, NULL, getCorpoEnvioGmudNovo($Gmud));
+echo "Enviando abertura da GMud";
+$envio = enviarEmail("leeung@casafreitas.com.br", "Suporte TI", "(GMUD) GESTÃO DE MUDANÇA - ".$Gmud['id'], $address, NULL, getCorpoEnvioGmudNovo($Gmud), $link);
 	
 
-if ($result) echo "<script>alert('Gmud Enviada')</script>";
-	else die();//echo "<script>alert('Erro no envio da Gmud')</script>";
+if ($envio) echo "<script>alert('Gmud Enviada')</script>";
+	else echo "<script>alert('Erro no envio da Gmud')</script>";
 	
 echo"<script>window.location.href='index.php'</script>";
 

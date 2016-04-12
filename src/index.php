@@ -38,6 +38,7 @@ require_once 'conexao.php';
 		 		<li><a role="presentation" href="index.php">GMUD</a></li>
 		 		<li><a href="index.php?pagina=criar">NOVO</a></li>
 		 		<li><a href="index.php?pagina=contatos">CONTATOS</a></li>
+		 		<li><a href="index.php?pagina=confEnvio">E-MAIL</a></li>
 		 	</ul>
 	 	</nav>
  	</div>
